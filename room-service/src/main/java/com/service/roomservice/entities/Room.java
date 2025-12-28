@@ -21,6 +21,9 @@ public class Room {
     @Column(unique = true)
     private Integer number;
     @Enumerated(EnumType.STRING)
+
+    private StatusRoom status;
+    @Enumerated(EnumType.STRING)
     private RoomType type;
     private Integer rating;
     @Column(nullable = false, precision = 10, scale = 2)

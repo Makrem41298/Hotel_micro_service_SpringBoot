@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mini_project_micro_service.iml" filepath="$PROJECT_DIR$/mini_project_micro_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hotel_micro_service_SpringBoot.iml" filepath="$PROJECT_DIR$/Hotel_micro_service_SpringBoot.iml" />
     </modules>
   </component>
 </project>

@@ -2,6 +2,7 @@ package com.service.roomservice.services;
 
 
 import com.service.roomservice.entities.Room;
+import com.service.roomservice.entities.StatusRoom;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,4 +16,5 @@ public interface IServiceRoom {
     public Room addNewRoom(Room room);
     public Room updateRoom(Room room, Integer id);
     public void deleteRoom(Integer id);
+    public void  updateStatusRoom(int roomId, StatusRoom statusRoom);
 }

@@ -1,9 +1,12 @@
 package com.service.roomservice.controllers;
 
 
+import com.service.roomservice.dto.RoomRequestDto;
+import com.service.roomservice.dto.RoomResponseDto;
 import com.service.roomservice.entities.Room;
 import com.service.roomservice.services.IServiceRoom;
-import lombok.RequiredArgsConstructor;
+import jakarta.validation.Valid;
+import com.service.roomservice.mapper.RoomMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,13 +31,14 @@ public class RoomController {
         return serviceRoom.getRoomById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
     @PostMapping
-    public ResponseEntity<Room> createRoom(@RequestBody Room room) {
+    public ResponseEntity<RoomResponseDto>createRoom(@Valid @RequestBody RoomRequestDto dto ) {
+        Room room = RoomMapper.toEntity(dto);
         Room newRoom=serviceRoom.addNewRoom(room);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newRoom);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new RoomResponseDto(newRoom));
     }
     @PutMapping("/{id}")
     public Room updateRoom(@PathVariable Integer id, @RequestBody Room room) {
-        return serviceRoom.updateRoom(room,id) ;// 404
+        return serviceRoom.updateRoom(room,id) ;
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteRoom(@PathVariable Integer id) {

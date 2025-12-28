@@ -14,15 +14,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        <processorPath>
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="room-service" />
+        <module name="reservation-service" />
+        <module name="client-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="client-service" target="17" />
       <module name="hotel-service" target="17" />
       <module name="room-servoce" target="17" />
     </bytecodeTargetLevel>
@@ -34,6 +34,7 @@
       <module name="discovery-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="hotel-service" options="-parameters" />
+      <module name="reservation-service" options="-parameters" />
       <module name="room-service" options="-parameters" />
       <module name="room-servoce" options="-parameters" />
     </option>

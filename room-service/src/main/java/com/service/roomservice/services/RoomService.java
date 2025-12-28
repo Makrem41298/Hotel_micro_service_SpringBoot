@@ -2,6 +2,7 @@ package com.service.roomservice.services;
 
 
 import com.service.roomservice.entities.Room;
+import com.service.roomservice.entities.StatusRoom;
 import com.service.roomservice.exception.ResourceNotFoundException;
 import com.service.roomservice.repository.RoomRepository;
 import lombok.*;
@@ -45,8 +46,12 @@ public class RoomService implements IServiceRoom {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Room not found with id: " + id));
         System.out.println(existingRoom);
-        return roomRepository.save(existingRoom) ;
+        room.setId(id);
+        return roomRepository.save(room) ;
     }
+
+
+
 
     @Override
     public void deleteRoom(Integer id) {
@@ -54,6 +59,15 @@ public class RoomService implements IServiceRoom {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Room not found with id: " + id));
         roomRepository.delete(existingRoom);
+    }
+
+    @Override
+    public void updateStatusRoom(int roomId, StatusRoom statusRoom) {
+        Room existingRoom = roomRepository.findById(roomId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Room not found with id: " + roomId));
+        existingRoom.setStatus(statusRoom);
+      roomRepository.save(existingRoom);
     }
 
 
