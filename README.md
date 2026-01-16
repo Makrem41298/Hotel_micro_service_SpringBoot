@@ -50,15 +50,12 @@ Before running the application, ensure you have the following installed:
 
 ### 1. Database Configuration
 Ensure your MySQL server is running. The services are configured to create databases automatically if they don't exist (`createDatabaseIfNotExist=true`).
-* **Username:** `root`
-* **Password:** `123456`
+* **Username:** `YourUserName`
+* **Password:** `YourPassword`
 
 *(Note: You can change these credentials in `config-service/src/main/resources/configurations/*.properties` if needed).*
 
 ### 2. Kafka Configuration
 Start your Zookeeper and Kafka server. The default configuration expects the broker at `localhost:9092`.
 
-### 3. Build the Project
-Run the following command in the root directory to build all modules:
-```bash
-mvn clean install -DskipTests
+
